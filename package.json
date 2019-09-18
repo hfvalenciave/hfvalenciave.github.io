@@ -7,7 +7,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prod": "ng build --prod --base-href 'https://hfvalenciave.github.io/'",
+    "ngh-1": "ngh --message='Angular H/F website removing nano label'",
+    "ngh-2": "ngh --brach=master",
+    "ngh-3": "ngh --dry-run",
+    "ngh-4": "ngh"
   },
   "private": true,
   "dependencies": {
