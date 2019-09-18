@@ -1,3 +1,2 @@
-
 # hfvalenciave.github.io
-web site para H/F Valencia
+web site para Hackers and Founders Valencia
