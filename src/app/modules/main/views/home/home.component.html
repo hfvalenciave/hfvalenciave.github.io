@@ -1,0 +1,14 @@
+<h2>Bienvenido a H/F Valencia</h2>
+<p>por ahora estamos en construcción, pero si deseas formar parte de esta comunmidad, déjanos tu email y pronto nos
+    pondremos en contacto para informarte sobre todas las novedades que se avecinan.
+</p>
+<form class="form-inline" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="input-group w-100">
+        <input type="text" class="form-control form-control-lg" 
+            placeholder="Email" formControlName="email">
+        <div class="input-group-apend">
+            <button type="submit" class="btn btn-lg btn-primary"
+                [disabled]="!form.valid">Enviar</button>
+        </div>
+    </div>
+</form>
