@@ -1,0 +1,50 @@
+@import 'theme/variables';
+@import 'theme/mixin';
+
+:host {
+    @include column-flex;
+    align-items: center;
+    justify-content: center;
+
+    header {
+        align-self: stretch;
+
+        .navbar-light {
+            .navbar-brand {
+                color: $blue-hf;
+
+                span {
+                    color: $red-hf;
+                }
+
+            }
+        }
+
+        .logo {
+            margin-right: 10px;
+        }
+    }
+
+    main {
+        @include column-flex;
+        justify-content: center;
+        width: 50%;
+
+        p {
+            text-align: justify;
+        }
+
+        form {
+            .btn {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
+    }
+
+    footer {
+        align-self: stretch;
+        font-size: 0.7em;
+        text-align: center;
+    }
+}

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import './theme/variables';
+@import './theme/mixin';
+
+html {
+    height: 100%;
+
+    body {
+        @include column-flex;
+        color: $main-color;
+        font-family: "Open Sans",Arial,sans-serif;
+        font-size: 16px;
+        font-weight: 200;
+        height: 100%;
+    }
+}
