@@ -12,5 +12,11 @@ html {
         font-size: 16px;
         font-weight: 200;
         height: 100%;
+
+        * {
+            &:focus {
+                box-shadow: none !important;
+            }
+        }
     }
 }
