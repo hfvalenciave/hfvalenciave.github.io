@@ -1,0 +1,59 @@
+<h2>Evento</h2>
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <!-- Type -->
+    <mat-form-field appearance="outline">
+        <mat-label>Tipo</mat-label>
+        <mat-select placeholder="Type" formControlName="type">
+            <mat-option value="meetup">Meetup</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- Name -->
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <!-- Date -->
+    <mat-form-field appearance="outline">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Event Date" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Start time -->
+    <mat-form-field appearance="outline">
+        <mat-label>Hora Inicio</mat-label>
+        <input type="time" matInput atp-time-picker placeholder="Start Time" formControlName="startTime" />
+    </mat-form-field>
+
+    <!-- End time -->
+    <mat-form-field appearance="outline">
+        <mat-label>Hora Fin</mat-label>
+        <input type="time" matInput atp-time-picker placeholder="End Time" formControlName="endTime" />
+    </mat-form-field>
+
+    <!-- Description -->
+    <mat-form-field appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    </mat-form-field>
+
+    <!-- Location -->
+    <mat-form-field appearance="outline">
+        <mat-label>Ubicación</mat-label>
+        <textarea matInput placeholder="Location" formControlName="location"></textarea>
+    </mat-form-field>
+
+    <!-- Image -->
+    <mat-form-field appearance="outline">
+            <mat-label>Imagen</mat-label>
+        <input matInput placeholder="Image" formControlName="image">
+    </mat-form-field>
+
+    <!-- Submit -->
+    <div class="button-wrapper">
+        <button mat-flat-button color="primary" [disabled]="!form.valid">Submit</button>
+    </div>
+</form>

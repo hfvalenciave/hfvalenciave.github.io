@@ -18,5 +18,12 @@ html {
                 box-shadow: none !important;
             }
         }
+
+        .hf-slash {
+            color: $red-hf;
+        }
     }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

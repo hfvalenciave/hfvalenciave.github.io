@@ -1,5 +1,5 @@
-@import 'theme/variables';
-@import 'theme/mixin';
+@import "theme/variables";
+@import "theme/mixin";
 
 :host {
     @include column-flex;
@@ -9,25 +9,14 @@
     header {
         align-self: stretch;
 
-        .navbar-light {
-            .navbar-brand {
-                color: $blue-hf;
-
-                span {
-                    color: $red-hf;
-                }
-
-            }
-        }
-
         .logo {
+            margin-bottom: -20px;
             margin-right: 10px;
         }
     }
 
     main {
         @include column-flex;
-        justify-content: center;
         width: 50%;
     }
 

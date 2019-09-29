@@ -5,6 +5,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'event',
+    loadChildren: () => import('./modules/event/event.module').then(m => m.EventModule)
   }
 ];
 
