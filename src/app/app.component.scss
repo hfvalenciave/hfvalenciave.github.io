@@ -9,6 +9,10 @@
     header {
         align-self: stretch;
 
+        .mat-toolbar-row {
+            padding: 0 16px 0 0;
+        }
+
         .logo {
             margin-bottom: -20px;
             margin-right: 10px;
@@ -35,6 +39,7 @@
 
             mat-sidenav-content {
                 @include column-flex;
+                padding: 5px 10px;
             }
         }
     }

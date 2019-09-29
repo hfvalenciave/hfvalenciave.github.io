@@ -56,8 +56,12 @@ export class EventFormComponent implements OnInit {
         if (this.form.valid) {
             this.removeNullValues(this.form.value);
             this.removeEmptyValues(this.form.value);
-            console.log(this.form.value);
-            this.eventService.save(this.form.value);
+            const event = this.form.value;
+            if (isNullOrUndefined(event._id)) {
+                this.eventService.save(event);
+            } else {
+                this.eventService.update(event._id, event);
+            }
         }
         console.log(this.form.value);
     }

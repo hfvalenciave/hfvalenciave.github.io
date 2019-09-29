@@ -24,10 +24,11 @@ export class SigninComponent implements OnInit {
     }
 
     submit() {
-        console.log(this.form.value);
         if (this.form.valid) {
+            this.form.disable();
             const { email, password } = this.form.value;
             this.authService.login(email, password).subscribe(value => {
+                this.form.enable();
                 this.router.navigate(['/admin']);
             });
         }
