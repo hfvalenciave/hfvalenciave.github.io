@@ -17,9 +17,6 @@ export class EventFormComponent implements OnInit {
     selectable = true;
     removable = true;
     addOnBlur = true;
-    @ViewChild('chipList', { static: true }) chipList;
-    GradeArray: any = ['8th Grade', '9th Grade', '10th Grade', '11th Grade', '12th Grade'];
-    SubjectsArray: {name: string}[] = [];
     readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
     constructor(formBuilder: FormBuilder,

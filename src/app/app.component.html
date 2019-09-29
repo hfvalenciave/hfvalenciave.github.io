@@ -1,6 +1,11 @@
 <header>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
+            <span *ngIf="signed">
+                <button mat-icon-button aria-label="Menu" (click)="toggleMenu()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </span>
             <span>
                 <!-- <a class="navbar-brand" [routerLink]="[ '/' ]"> -->
                 <img src="/assets/images/logo-50.png" class="d-inline-block align-top logo" alt="">
@@ -19,7 +24,19 @@
 </header>
 
 <main>
-    <router-outlet></router-outlet>
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav [class.closed]="!opened"
+            [@openClose]="{value: (opened ? 'open' : 'closed'), params: {maxSize: maxSize, minSize: minSize}}">
+            <mat-action-list>
+                <button mat-list-item (click)="navigateTo('/event')"> Events </button>
+                <button mat-list-item (click)="navigateTo('/admin')"> Admin </button>
+            </mat-action-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </main>
 
 <footer>

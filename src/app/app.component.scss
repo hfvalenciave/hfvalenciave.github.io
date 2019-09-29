@@ -21,7 +21,22 @@
 
     main {
         @include column-flex;
-        width: 50%;
+        width: 100%;
+
+        mat-sidenav-container {
+            @include row-flex;
+
+            mat-sidenav {
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            mat-sidenav-content {
+                @include column-flex;
+            }
+        }
     }
 
     footer {

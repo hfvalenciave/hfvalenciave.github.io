@@ -13,9 +13,6 @@ export class AuthGuard implements CanActivate {
     canActivate(
         next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-        console.log(
-            'nano'
-        );
         if (!this.auth.signed.getValue()) {
             this.router.navigate(['/security/signin']);
             return false;
