@@ -3,10 +3,15 @@
         <mat-toolbar-row>
             <span>
                 <!-- <a class="navbar-brand" [routerLink]="[ '/' ]"> -->
-                    <img src="/assets/images/logo-50.png" class="d-inline-block align-top logo"
-                        alt="">
-                    Hackers <span class="hf-slash">/</span> Founders Valencia
+                <img src="/assets/images/logo-50.png" class="d-inline-block align-top logo" alt="">
+                Hackers <span class="hf-slash">/</span> Founders Valencia
                 <!-- </a> -->
+            </span>
+            <span class="separator"></span>
+            <span *ngIf="signed">
+                <button mat-icon-button aria-label="Logout" (click)="logout()">
+                    <mat-icon>exit_to_app</mat-icon>
+                </button>
             </span>
         </mat-toolbar-row>
 

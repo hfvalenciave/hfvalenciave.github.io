@@ -1,0 +1,22 @@
+<h2>Evento</h2>
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+
+    <!-- Email -->
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+
+    <!-- Password -->
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Password" formControlName="password">
+    </mat-form-field>
+
+
+    <!-- Submit -->
+    <div class="button-wrapper">
+        <button mat-flat-button color="primary" [disabled]="!form.valid">Submit</button>
+    </div>
+</form>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EventDetailComponent } from './views/event-detail/event-detail.component';
 import { EventFormComponent } from './views/event-form/event-form.component';
 import { EventManagerComponent } from './views/event-manager/event-manager.component';
+import { EventRegisterComponent } from './views/event-register/event-register.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: ':id/edit',
     component: EventFormComponent
+  },
+  {
+    path: ':id/register',
+    component: EventRegisterComponent
   }
 ];
 

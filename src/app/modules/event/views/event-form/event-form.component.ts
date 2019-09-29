@@ -1,3 +1,4 @@
+import { FirebaseDate } from './../../models/event';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -48,6 +49,8 @@ export class EventFormComponent implements OnInit {
     loadValues(id: string) {
         this.eventService.getById(id).subscribe(document => {
             console.log(document);
+            const date = new Date((document.date as FirebaseDate).seconds * 1000);
+            document.date = date;
             this.form.patchValue(document);
         });
     }

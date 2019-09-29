@@ -1,8 +1,13 @@
+export interface FirebaseDate {
+    seconds: number;
+    nanoseconds: number;
+}
+
 export interface Event {
     _id?: string;
     type: string;
     name: string;
-    date: { seconds: number, nanoseconds: number };
+    date: FirebaseDate | Date;
     startTime: number;
     endTime: number;
     description: string;

@@ -28,8 +28,11 @@ export class EventService {
         return this.db.collection<Event>(urlTable).doc(id).snapshotChanges()
             .pipe(
                 map(doc => {
-                    const data = doc.payload.data();
-                    return {_id: id, ...data} as Event;
+                    if (doc.payload.exists) {
+                        const data = doc.payload.data();
+                        return {_id: id, ...data} as Event;
+                    }
+                    return null;
                 })
             );
     }

@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="(event | async); else notfound">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{ (event | async)?.name}}</mat-card-title>
@@ -18,3 +18,7 @@
         <button mat-button>Register</button>
     </mat-card-actions>
 </mat-card>
+
+<ng-template #notfound>
+    No encontrado
+</ng-template>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { AuthService } from './modules/security-utils/services/auth/auth.service';
 
 @Component({
     selector: 'app-root',
@@ -8,10 +8,16 @@ import { Observable } from 'rxjs';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+    signed: boolean;
     title = 'H/F Valencia';
 
-    constructor() { }
+    constructor(private auth: AuthService, private router: Router) { }
 
     ngOnInit() {
+        this.auth.signed.subscribe(value => this.signed = value);
+    }
+
+    logout() {
+        this.auth.logout().subscribe(() => this.router.navigate(['/']));
     }
 }
