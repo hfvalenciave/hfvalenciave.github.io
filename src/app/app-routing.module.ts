@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/main/main.module').then(m => m.MainModule)
   },
   {
@@ -15,7 +14,6 @@ const routes: Routes = [
   },
   {
     path: 'event',
-    canActivate: [AuthGuard],
     loadChildren: () => import('./modules/event/event.module').then(m => m.EventModule)
   },
   {

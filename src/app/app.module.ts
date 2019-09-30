@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoadMaterialModule } from './modules/load-material/load-material.module';
 import { SecurityUtilsModule } from './modules/security-utils/security-utils.module';
+import { UtilsModule } from './modules/utils/utils.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SecurityUtilsModule } from './modules/security-utils/security-utils.mod
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        SecurityUtilsModule
+        SecurityUtilsModule,
+        UtilsModule
     ],
     providers: [],
     bootstrap: [AppComponent],

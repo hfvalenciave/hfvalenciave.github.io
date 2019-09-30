@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
-import { EventService } from '../../services/event.service';
+import { EventService } from '../../services/event/event.service';
 import { Event } from './../../models/event';
 import { Router } from '@angular/router';
 

@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { MainRoutingModule } from './main-routing.module';
 import { HomeComponent } from './views/home/home.component';
+import { LoadMaterialModule } from '../load-material/load-material.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { HomeComponent } from './views/home/home.component';
         CommonModule,
         FormsModule,
         HttpClientModule,
+        LoadMaterialModule,
         MainRoutingModule,
         ReactiveFormsModule
     ]

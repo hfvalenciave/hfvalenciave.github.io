@@ -1,0 +1,34 @@
+@import "theme/mixin";
+
+:host {
+    @include column-flex;
+    align-self: center;
+    width: 50%;
+
+    .event-detail {
+        img {
+            width: 100%;
+        }
+    }
+
+    .register {
+
+        .event-title {
+            display: flex;
+            
+            .date {
+                flex: 1;
+                font-size: 0.75em;
+                text-align: right;
+            }
+    
+            .time {
+                font-size: 0.75em;
+            }    
+        }
+        form {
+            @include column-flex;
+        }
+    }
+
+}

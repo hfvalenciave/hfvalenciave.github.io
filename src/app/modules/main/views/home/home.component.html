@@ -1,14 +1,31 @@
-<h2>Bienvenido a H<span class="hf-slash">/</span>F Valencia</h2>
-<p>por ahora estamos en construcción, pero si deseas formar parte de esta comunmidad, déjanos tu email y pronto nos
-    pondremos en contacto para informarte sobre todas las novedades que se avecinan.
-</p>
-<form class="form-inline" [formGroup]="form" (ngSubmit)="submit()">
-    <div class="input-group w-100">
-        <input type="text" class="form-control form-control-lg" 
-            placeholder="Email" formControlName="email">
-        <div class="input-group-apend">
-            <button type="submit" class="btn btn-lg btn-primary"
-                [disabled]="!form.valid">Enviar</button>
+<mat-card>
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Bienvenido a H<span class="hf-slash">/</span>F Valencia</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <img mat-card-image
+            src="https://firebasestorage.googleapis.com/v0/b/hfvalenciave-website-dev.appspot.com/o/H%26F_VAL_LOGO.png?alt=media&token=8575a2fb-cf29-4e98-b2f5-9b16032a39d8"
+            alt="Logo Hackers and Founders Valencia">
+    </mat-card-content>
+</mat-card>
+
+<div class="register">
+    <p>
+        por ahora estamos en construcción, pero si deseas formar parte de esta comunidad, déjanos tu email y pronto nos
+        pondremos en contacto para informarte de todo lo que estamos preparando.
+    </p>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <!-- Email -->
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+        <!-- Submit -->
+        <div class="button-wrapper">
+            <button mat-flat-button color="primary" [disabled]="!form.valid">Enviar</button>
         </div>
-    </div>
-</form>
+
+    </form>
+</div>

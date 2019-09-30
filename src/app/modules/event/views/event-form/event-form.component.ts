@@ -2,8 +2,8 @@ import { FirebaseDate } from './../../models/event';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EventService } from './../../services/event.service';
-import { isNullOrUndefined } from 'util';
+import { EventService } from '../../services/event/event.service';
+import { isNullOrUndefined, isNull } from 'util';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -20,8 +20,8 @@ export class EventFormComponent implements OnInit {
     readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
     constructor(formBuilder: FormBuilder,
-                private activateRoute: ActivatedRoute,
-                private eventService: EventService) {
+        private activateRoute: ActivatedRoute,
+        private eventService: EventService) {
         this.form = formBuilder.group({
             _id: [''],
             type: ['meetup', Validators.required],
@@ -46,9 +46,11 @@ export class EventFormComponent implements OnInit {
     loadValues(id: string) {
         this.eventService.getById(id).subscribe(document => {
             console.log(document);
-            const date = new Date((document.date as FirebaseDate).seconds * 1000);
-            document.date = date;
-            this.form.patchValue(document);
+            if (!isNullOrUndefined(document)) {
+                const date = new Date((document.date as FirebaseDate).seconds * 1000);
+                document.date = date;
+                this.form.patchValue(document);
+            }
         });
     }
 

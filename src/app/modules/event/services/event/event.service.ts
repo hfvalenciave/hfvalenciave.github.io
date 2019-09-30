@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { from } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Event } from './../models/event';
+import { Event } from './../../models/event';
 
 const urlTable = 'events';
 
