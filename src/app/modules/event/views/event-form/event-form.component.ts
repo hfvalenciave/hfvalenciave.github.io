@@ -20,8 +20,8 @@ export class EventFormComponent implements OnInit {
     readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
     constructor(formBuilder: FormBuilder,
-        private activateRoute: ActivatedRoute,
-        private eventService: EventService) {
+                private activateRoute: ActivatedRoute,
+                private eventService: EventService) {
         this.form = formBuilder.group({
             _id: [''],
             type: ['meetup', Validators.required],

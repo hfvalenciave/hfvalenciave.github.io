@@ -7,9 +7,10 @@ $break-large: 800px;
 :host {
     @include column-flex;
     align-self: center;
+    border: none;
     border-radius: 5px 5px 0 0;
     box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
-    max-width: 1080px;border: 1px solid rgba(0,0,0,.03);
+    max-width: 1080px;
     overflow: hidden;
 
     .event-detail {

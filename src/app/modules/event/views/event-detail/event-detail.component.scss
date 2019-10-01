@@ -1,0 +1,87 @@
+@import "theme/mixin";
+@import "theme/variables";
+
+$break-small: 320px;
+$break-large: 800px;
+
+:host {
+    @include column-flex;
+    align-self: center;
+    border: none;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+    flex: none;
+    max-width: 1080px;
+    overflow: hidden;
+
+    .event-detail {
+        @include row-flex;
+        flex: none;
+
+        @media screen and (max-width: $break-large) {
+            @include column-flex;
+        }
+
+        .event-image {
+            flex: 2;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .event-description {
+            @include column-flex;
+            background-color: $background-gray;
+            padding: 15px 5px 5px 15px;
+
+            @media screen and (max-width: $break-large) {
+                @include row-flex;
+                background-color: transparent;
+            }
+        }
+
+        .event-title {
+            color: black;
+            flex: 1;
+            font-size: 1.25em;
+            margin-top: 15px;
+            
+            @media screen and (max-width: $break-large) {
+                margin-left: 15px;
+            }
+        }
+
+        .event-date {
+            @include column-flex;
+            flex: 0;
+
+            .day {
+                font-size: 1.5em;
+            }
+        }
+
+        .event-time {
+            font-size: 0.75em;
+        }
+
+        .event-price {
+
+            @media screen and (max-width: $break-large) {
+                align-self: flex-end;
+                margin-right: 20px;
+            }
+        }
+    }
+
+    .event-info {
+        padding: 15px;
+        position: relative;
+
+        .register-btn {
+            position: absolute;
+            right: 25px;
+        }
+    }
+}

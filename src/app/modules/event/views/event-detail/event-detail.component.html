@@ -1,23 +1,23 @@
-<mat-card class="example-card" *ngIf="(event | async); else notfound">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{ (event | async)?.name}}</mat-card-title>
-        <mat-card-subtitle>
-            <span>{{ (event | async)?.date.seconds * 1000 | date }}</span>
-        </mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-        <h4>Description</h4>
-        <div [innerHTML]="(event | async)?.description"></div>
-        <h4>Location</h4>
-        <div [innerHTML]="(event | async)?.location"></div>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>Edit</button>
-        <button mat-button>Register</button>
-    </mat-card-actions>
-</mat-card>
+<div class="event-detail" *ngIf="event">
+    <div class="event-image">
+        <img [src]="event?.image" alt="">
+    </div>
+    <div class="event-description">
+        <div class="event-date">
+            <span class="month">{{ getDate() | date : 'MMM' }}</span>
+            <span class="day">{{ getDate() | date : 'dd' }}</span>
+        </div>
+        <div class="event-title">{{ event?.name }}</div>
+        <div class="event-price">Free</div>
+    </div>
+</div>
+
+<div class='event-info' *ngIf="event; else notfound">
+    <a [routerLink]="[ '/event', event._id, 'register' ]" mat-raised-button color="primary" class="register-btn">Registro</a>
+    <div [innerHTML]="event?.description"></div>
+    <h4>Ubicación</h4>
+    <div [innerHTML]="event?.location"></div>
+</div>
 
 <ng-template #notfound>
     No encontrado
