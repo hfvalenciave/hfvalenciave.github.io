@@ -14,69 +14,77 @@
 <div class="register" *ngIf="currentEvent">
     <form [formGroup]="form" class="register" (ngSubmit)="submit()" novalidate>
 
-        <!-- Name -->
-        <mat-form-field appearance="outline">
-            <mat-label>Nombre</mat-label>
-            <input matInput placeholder="Nombre" formControlName="firstName">
-        </mat-form-field>
+        <div class="group-fields">
+            <!-- Name -->
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre" formControlName="firstName">
+            </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Apellido</mat-label>
-            <input matInput placeholder="Apellido" formControlName="lastName">
-        </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input matInput placeholder="Apellido" formControlName="lastName">
+            </mat-form-field>
+        </div>
 
-        <!-- Email -->
-        <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" formControlName="email">
-        </mat-form-field>
+        <div class="group-fields">
+            <!-- Email -->
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email">
+            </mat-form-field>
 
-        <!-- City -->
-        <mat-form-field appearance="outline">
-            <mat-label>Ciudad</mat-label>
-            <input matInput placeholder="Ciudad" formControlName="city">
-        </mat-form-field>
+            <!-- City -->
+            <mat-form-field appearance="outline">
+                <mat-label>Ciudad</mat-label>
+                <input matInput placeholder="Ciudad" formControlName="city">
+            </mat-form-field>
+        </div>
 
-        <!-- birthdate -->
-        <mat-form-field appearance="outline">
-            <mat-label>Fecha nacimiento</mat-label>
-            <input matInput [matDatepicker]="picker" placeholder="Fecha Nacimiento" formControlName="birthdate">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        <div class="group-fields">
+            <!-- birthdate -->
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Fecha Nacimiento" formControlName="birthdate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
 
-        <!-- Gender -->
-        <mat-form-field appearance="outline">
-            <mat-label>Género</mat-label>
-            <mat-select placeholder="Seleccione género..." formControlName="gender">
-                <mat-option value="male">Hombre</mat-option>
-                <mat-option value="female">Mujer</mat-option>
-                <mat-option value="other">Otro</mat-option>
-            </mat-select>
-        </mat-form-field>
+            <!-- Gender -->
+            <mat-form-field appearance="outline">
+                <mat-label>Género</mat-label>
+                <mat-select placeholder="Seleccione género..." formControlName="gender">
+                    <mat-option value="male">Hombre</mat-option>
+                    <mat-option value="female">Mujer</mat-option>
+                    <mat-option value="other">Otro</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
 
-        <!-- Sector -->
-        <mat-form-field appearance="outline">
-            <mat-label>Área de experticia</mat-label>
-            <mat-select placeholder="Seleccione área..." formControlName="sector">
-                <mat-option value="ia-ml">Inteligencia Artificial/Machine Learning</mat-option>
-                <mat-option value="agtech">BioTech/Tecnología Agrícola (AgTech)</mat-option>
-                <mat-option value="blockchain">Blockchain/Activos Digitales</mat-option>
-                <mat-option value="ecommerce">eCommerce - Next Generation</mat-option>
-                <mat-option value="emerging_tech">Tecnologías Emergentes</mat-option>
-                <mat-option value="fintech">Servicios Financieros/Pagos</mat-option>
-                <mat-option value="iot">Internet de las Cosas (IoT)</mat-option>
-                <mat-option value="security">Seguridad</mat-option>
-                <mat-option value="saas">Software como Servicio (SaaS)</mat-option>
-                <mat-option value="other">Otro</mat-option>
-            </mat-select>
-        </mat-form-field>
+        <div class="group-fields">
+            <!-- Sector -->
+            <mat-form-field appearance="outline">
+                <mat-label>Área de experticia</mat-label>
+                <mat-select placeholder="Seleccione área..." formControlName="sector">
+                    <mat-option value="ia-ml">Inteligencia Artificial/Machine Learning</mat-option>
+                    <mat-option value="agtech">BioTech/Tecnología Agrícola (AgTech)</mat-option>
+                    <mat-option value="blockchain">Blockchain/Activos Digitales</mat-option>
+                    <mat-option value="ecommerce">eCommerce - Next Generation</mat-option>
+                    <mat-option value="emerging_tech">Tecnologías Emergentes</mat-option>
+                    <mat-option value="fintech">Servicios Financieros/Pagos</mat-option>
+                    <mat-option value="iot">Internet de las Cosas (IoT)</mat-option>
+                    <mat-option value="security">Seguridad</mat-option>
+                    <mat-option value="saas">Software como Servicio (SaaS)</mat-option>
+                    <mat-option value="other">Otro</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <!-- Position -->
-        <mat-form-field appearance="outline">
-            <mat-label>Ocupación</mat-label>
-            <input matInput placeholder="Ocupación" formControlName="position">
-        </mat-form-field>
+            <!-- Position -->
+            <mat-form-field appearance="outline">
+                <mat-label>Ocupación</mat-label>
+                <input matInput placeholder="Ocupación" formControlName="position">
+            </mat-form-field>
+        </div>
 
         <!-- Submit -->
         <div class="button-wrapper">
