@@ -7,7 +7,11 @@
             <span class="month">{{ getDate() | date : 'MMM' }}</span>
             <span class="day">{{ getDate() | date : 'dd' }}</span>
         </div>
+        <div class="event-type">{{ currentEvent?.type }}</div>
         <div class="event-title">{{ currentEvent?.name }}</div>
+
+        <div class="event-location" [innerHTML]="currentEvent?.location"></div>
+
         <div class="event-price">Free</div>
     </div>
 </div>

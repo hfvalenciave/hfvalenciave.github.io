@@ -66,6 +66,11 @@ $break-large: 800px;
             font-size: 0.75em;
         }
 
+        .event-type {
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
         .event-price {
 
             @media screen and (max-width: $break-large) {

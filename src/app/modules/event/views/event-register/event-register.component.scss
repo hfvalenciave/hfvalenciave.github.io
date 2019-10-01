@@ -41,13 +41,23 @@ $break-large: 800px;
         }
 
         .event-title {
+            align-items: center;
             color: black;
+            display: flex;
             flex: 1;
             font-size: 1.25em;
             margin-top: 15px;
 
             @media screen and (max-width: $break-large) {
                 margin-left: 15px;
+            }
+        }
+
+        .event-location {
+            margin-bottom: 40px;
+
+            @media screen and (max-width: $break-large) {
+                display: none;
             }
         }
 
@@ -62,6 +72,11 @@ $break-large: 800px;
 
         .event-time {
             font-size: 0.75em;
+        }
+
+        .event-type {
+            font-size: 0.9em;
+            text-transform: uppercase;
         }
 
         .event-price {
