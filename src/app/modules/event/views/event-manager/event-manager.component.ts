@@ -3,6 +3,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { EventService } from '../../services/event/event.service';
 import { Event } from './../../models/event';
 import { Router } from '@angular/router';
+import { isNullOrUndefined } from 'util';
 
 @Component({
     selector: 'app-event-manager',
@@ -29,8 +30,11 @@ export class EventManagerComponent implements OnInit {
         this.router.navigate(['/event', event._id]);
     }
 
-    edit(element: Event) {
-        console.log(element);
-        this.router.navigate(['/event', element._id, 'edit']);
+    goto(element: Event, page?: string) {
+        const commands = ['/event', element._id];
+        if (!isNullOrUndefined(page)) {
+            commands.push(page);
+        }
+        this.router.navigate(commands);
     }
 }
