@@ -9,6 +9,10 @@
     header {
         align-self: stretch;
 
+        .clickable {
+            cursor: pointer;
+        }
+
         .mat-toolbar-row {
             padding: 0 16px 0 0;
         }
