@@ -1,25 +1,42 @@
 <div class="event-detail" *ngIf="currentEvent">
-    <img [src]="currentEvent?.image" alt="">
+    <div class="event-image">
+        <img [src]="currentEvent?.image" alt="">
+    </div>
+    <div class="event-description">
+        <div class="event-date">
+            <span class="month">{{ getDate() | date : 'MMM' }}</span>
+            <span class="day">{{ getDate() | date : 'dd' }}</span>
+        </div>
+        <div class="event-title">{{ currentEvent?.name }}</div>
+        <div class="event-price">Free</div>
+    </div>
 </div>
 <div class="register" *ngIf="currentEvent">
-    <h3 class="event-title">
-        {{ currentEvent?.name }}
-        <span class="date">{{ getDate() | date }} - {{ currentEvent?.startTime | time }}</span>
-    </h3>
     <form [formGroup]="form" class="register" (ngSubmit)="submit()" novalidate>
 
         <!-- Name -->
         <mat-form-field appearance="outline">
             <mat-label>Nombre</mat-label>
-            <input matInput placeholder="Name" formControlName="name">
+            <input matInput placeholder="Nombre" formControlName="firstName">
         </mat-form-field>
-    
+
+        <mat-form-field appearance="outline">
+            <mat-label>Apellido</mat-label>
+            <input matInput placeholder="Apellido" formControlName="lastName">
+        </mat-form-field>
+
         <!-- Email -->
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input matInput placeholder="Email" formControlName="email">
         </mat-form-field>
-    
+
+        <!-- City -->
+        <mat-form-field appearance="outline">
+            <mat-label>Ciudad</mat-label>
+            <input matInput placeholder="Ciudad" formControlName="city">
+        </mat-form-field>
+
         <!-- birthdate -->
         <mat-form-field appearance="outline">
             <mat-label>Fecha nacimiento</mat-label>
@@ -27,35 +44,40 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-    
-        <!-- OccupationArea -->
+
+        <!-- Gender -->
         <mat-form-field appearance="outline">
-            <mat-label>Área de experticia</mat-label>
-            <mat-select placeholder="Type" formControlName="occupationArea">
-                <mat-option value="programmation">Programación</mat-option>
-                <mat-option value="design">Diseño Gráfico</mat-option>
-                <mat-option value="business">Negocios</mat-option>
+            <mat-label>Género</mat-label>
+            <mat-select placeholder="Seleccione género..." formControlName="gender">
+                <mat-option value="male">Hombre</mat-option>
+                <mat-option value="female">Mujer</mat-option>
+                <mat-option value="other">Otro</mat-option>
             </mat-select>
         </mat-form-field>
-    
-        <!-- Description -->
-        <!-- <mat-form-field appearance="outline">
-            <mat-label>Descripción</mat-label>
-            <textarea matInput placeholder="Description" formControlName="description"></textarea>
-        </mat-form-field> -->
-    
-        <!-- Location -->
-        <!-- <mat-form-field appearance="outline">
-            <mat-label>Ubicación</mat-label>
-            <textarea matInput placeholder="Location" formControlName="location"></textarea>
-        </mat-form-field> -->
-    
-        <!-- Image -->
-        <!-- <mat-form-field appearance="outline">
-            <mat-label>Imagen</mat-label>
-            <input matInput placeholder="Image" formControlName="image">
-        </mat-form-field> -->
-    
+
+        <!-- Sector -->
+        <mat-form-field appearance="outline">
+            <mat-label>Área de experticia</mat-label>
+            <mat-select placeholder="Seleccione área..." formControlName="sector">
+                <mat-option value="ia-ml">Inteligencia Artificial/Machine Learning</mat-option>
+                <mat-option value="agtech">BioTech/Tecnología Agrícola (AgTech)</mat-option>
+                <mat-option value="blockchain">Blockchain/Activos Digitales</mat-option>
+                <mat-option value="ecommerce">eCommerce - Next Generation</mat-option>
+                <mat-option value="emerging_tech">Tecnologías Emergentes</mat-option>
+                <mat-option value="fintech">Servicios Financieros/Pagos</mat-option>
+                <mat-option value="iot">Internet de las Cosas (IoT)</mat-option>
+                <mat-option value="security">Seguridad</mat-option>
+                <mat-option value="saas">Software como Servicio (SaaS)</mat-option>
+                <mat-option value="other">Otro</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Position -->
+        <mat-form-field appearance="outline">
+            <mat-label>Ocupación</mat-label>
+            <input matInput placeholder="Ocupación" formControlName="position">
+        </mat-form-field>
+
         <!-- Submit -->
         <div class="button-wrapper">
             <button mat-flat-button color="primary" [disabled]="!form.valid">Enviar</button>

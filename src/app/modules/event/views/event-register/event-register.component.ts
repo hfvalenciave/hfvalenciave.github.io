@@ -20,10 +20,14 @@ export class EventRegisterComponent implements OnInit {
                 private eventService: EventService,
                 private registerService: EventRegisterService) {
         this.form = formBuilder.group({
-            name: ['', Validators.required],
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
             email: ['', [Validators.required, Validators.email]],
+            city: ['', Validators.required],
             birthdate: ['', Validators.required],
-            occupationArea: ['', Validators.required]
+            gender: ['', Validators.required],
+            sector: ['', Validators.required],
+            position: ['', Validators.required]
         });
     }
 
