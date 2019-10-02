@@ -90,34 +90,24 @@
     }
 
     .register {
-        padding: 15px 10px;
+        @include column-flex;
+        padding: 15px;
+        position: relative;
 
-        form {
-            @include column-flex;
-
-            .group-fields {
-                @include row-flex;
-
-                @media screen and (max-width: $break-large) {
-                    @include column-flex;
-                }
-
-                mat-form-field {
-                    flex: 1;
-                }
-
-                mat-form-field + mat-form-field {
-                    margin-left: 10px;
-
-                    @media screen and (max-width: $break-large) {
-                        margin-left: 0;
-                    }
-                }
+        h1 {
+            @media screen and (max-width: $break-large) {
+                margin-top: 40px;
             }
+        }
 
-            button {
-                width: 100%;
-            }
+        .btn-back {
+            position: absolute;
+            right: 25px;
+        }
+
+        .register-code {
+            font-size: 1.5em;
+            font-weight: bold;
         }
     }
 }

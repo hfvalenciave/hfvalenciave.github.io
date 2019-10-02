@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { isNullOrUndefined } from 'util';
 import { EventService } from '../../services/event/event.service';
 import { Event, FirebaseDate } from './../../models/event';
@@ -18,7 +18,8 @@ export class EventRegisterComponent implements OnInit {
     constructor(formBuilder: FormBuilder,
                 private activatedRoute: ActivatedRoute,
                 private eventService: EventService,
-                private registerService: EventRegisterService) {
+                private registerService: EventRegisterService,
+                private router: Router) {
         this.form = formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
@@ -47,7 +48,10 @@ export class EventRegisterComponent implements OnInit {
     submit() {
         if (this.form.valid && !isNullOrUndefined(this.currentEvent)) {
             this.registerService.save(this.currentEvent._id, this.form.value)
-                .subscribe(value => console.log(value));
+                .subscribe(value => {
+                    console.log(value);
+                    this.router.navigate(['/event', this.currentEvent._id, 'register', value.id]);
+                });
         }
     }
 }

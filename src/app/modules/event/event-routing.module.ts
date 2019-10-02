@@ -1,3 +1,4 @@
+import { EventRegisterSuccessComponent } from './views/event-register-success/event-register-success.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './../security-utils/services/auth/auth.guard';
@@ -20,7 +21,6 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    canActivate: [AuthGuard],
     component: EventDetailComponent
   },
   {
@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: ':id/register',
     component: EventRegisterComponent
+  },
+  {
+    path: ':id/register/:registerId',
+    component: EventRegisterSuccessComponent
   }
 ];
 

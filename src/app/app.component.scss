@@ -6,6 +6,12 @@
     align-items: center;
     justify-content: center;
 
+    .hideable {
+        @media screen and (max-width: $break-small) {
+            display: none;
+        }
+    }
+
     header {
         align-self: stretch;
 

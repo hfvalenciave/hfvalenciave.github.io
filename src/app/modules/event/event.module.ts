@@ -7,10 +7,17 @@ import { EventRoutingModule } from './event-routing.module';
 import { EventDetailComponent } from './views/event-detail/event-detail.component';
 import { EventFormComponent } from './views/event-form/event-form.component';
 import { EventManagerComponent } from './views/event-manager/event-manager.component';
+import { EventRegisterSuccessComponent } from './views/event-register-success/event-register-success.component';
 import { EventRegisterComponent } from './views/event-register/event-register.component';
 
 @NgModule({
-  declarations: [EventManagerComponent, EventFormComponent, EventDetailComponent, EventRegisterComponent],
+  declarations: [
+    EventManagerComponent,
+    EventFormComponent,
+    EventDetailComponent,
+    EventRegisterComponent,
+    EventRegisterSuccessComponent
+  ],
   imports: [
     CommonModule,
     EventRoutingModule,

@@ -1,5 +1,6 @@
 import { FirebaseDate } from './event';
 export interface EventRegister {
+    _id: string;
     firstName: string;
     lastName: string;
     email: string;
