@@ -25,11 +25,6 @@ export class EventManagerComponent implements OnInit {
         });
     }
 
-    show(event: Event) {
-        console.log(event);
-        this.router.navigate(['/event', event._id]);
-    }
-
     goto(element: Event, page?: string) {
         const commands = ['/event', element._id];
         if (!isNullOrUndefined(page)) {
