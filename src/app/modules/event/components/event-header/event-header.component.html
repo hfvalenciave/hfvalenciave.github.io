@@ -1,0 +1,17 @@
+<ng-container *ngIf="event">
+    <div class="event-image">
+        <img [src]="event?.image" alt="">
+    </div>
+    <div class="event-description">
+        <div class="event-date">
+            <span class="month">{{ getDate() | date : 'MMM' }}</span>
+            <span class="day">{{ getDate() | date : 'dd' }}</span>
+        </div>
+        <div class="event-type">{{ event?.type }}</div>
+        <div class="event-title">{{ event?.name }}</div>
+
+        <div class="event-location" [innerHTML]="event?.location"></div>
+
+        <div class="event-price">Free</div>
+    </div>
+</ng-container>

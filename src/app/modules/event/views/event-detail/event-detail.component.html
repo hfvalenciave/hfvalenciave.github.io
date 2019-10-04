@@ -1,17 +1,4 @@
-<div class="event-detail" *ngIf="event">
-    <div class="event-image">
-        <img [src]="event?.image" alt="">
-    </div>
-    <div class="event-description">
-        <div class="event-date">
-            <span class="month">{{ getDate() | date : 'MMM' }}</span>
-            <span class="day">{{ getDate() | date : 'dd' }}</span>
-        </div>
-        <div class="event-type">{{ event?.type }}</div>
-        <div class="event-title">{{ event?.name }}</div>
-        <div class="event-price">Free</div>
-    </div>
-</div>
+<event-header [event]="event"></event-header>
 
 <div class='event-info' *ngIf="event; else notfound">
     <a [routerLink]="[ '/event', event._id, 'register' ]" mat-raised-button color="primary" class="register-btn">Registro</a>
@@ -21,5 +8,5 @@
 </div>
 
 <ng-template #notfound>
-    No encontrado
+    Cargando
 </ng-template>

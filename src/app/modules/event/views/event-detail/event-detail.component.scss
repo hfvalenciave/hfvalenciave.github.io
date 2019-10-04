@@ -1,5 +1,4 @@
 @import "theme/mixin";
-@import "theme/variables";
 
 $break-small: 320px;
 $break-large: 800px;
@@ -13,72 +12,6 @@ $break-large: 800px;
     flex: none;
     max-width: 1080px;
     overflow: hidden;
-
-    .event-detail {
-        @include row-flex;
-        flex: none;
-
-        @media screen and (max-width: $break-large) {
-            @include column-flex;
-        }
-
-        .event-image {
-            flex: 2;
-
-            img {
-                height: 100%;
-                width: 100%;
-            }
-        }
-
-        .event-description {
-            @include column-flex;
-            background-color: $background-gray;
-            padding: 15px 5px 5px 15px;
-
-            @media screen and (max-width: $break-large) {
-                @include row-flex;
-                background-color: transparent;
-            }
-        }
-
-        .event-title {
-            color: black;
-            flex: 1;
-            font-size: 1.25em;
-            margin-top: 15px;
-            
-            @media screen and (max-width: $break-large) {
-                margin-left: 15px;
-            }
-        }
-
-        .event-date {
-            @include column-flex;
-            flex: 0;
-
-            .day {
-                font-size: 1.5em;
-            }
-        }
-
-        .event-time {
-            font-size: 0.75em;
-        }
-
-        .event-type {
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
-
-        .event-price {
-
-            @media screen and (max-width: $break-large) {
-                align-self: flex-end;
-                margin-right: 20px;
-            }
-        }
-    }
 
     .event-info {
         padding: 15px;

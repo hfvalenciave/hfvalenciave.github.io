@@ -1,20 +1,5 @@
-<div class="event-detail" *ngIf="currentEvent">
-    <div class="event-image">
-        <img [src]="currentEvent?.image" alt="">
-    </div>
-    <div class="event-description">
-        <div class="event-date">
-            <span class="month">{{ getDate() | date : 'MMM' }}</span>
-            <span class="day">{{ getDate() | date : 'dd' }}</span>
-        </div>
-        <div class="event-type">{{ currentEvent?.type }}</div>
-        <div class="event-title">{{ currentEvent?.name }}</div>
+<event-header [event]="currentEvent"></event-header>
 
-        <div class="event-location" [innerHTML]="currentEvent?.location"></div>
-
-        <div class="event-price">Free</div>
-    </div>
-</div>
 <div class="register" *ngIf="currentRegister">
     <h1>Registro exitoso</h1>
     <a [routerLink]="[ '/event', currentEvent?._id ]" mat-raised-button color="primary" class="btn-back">Volver al evento</a>

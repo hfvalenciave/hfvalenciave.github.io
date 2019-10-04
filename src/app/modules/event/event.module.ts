@@ -10,6 +10,7 @@ import { EventManagerComponent } from './views/event-manager/event-manager.compo
 import { EventRegisterSuccessComponent } from './views/event-register-success/event-register-success.component';
 import { EventRegisterComponent } from './views/event-register/event-register.component';
 import { EventAttendanceComponent } from './views/event-attendance/event-attendance.component';
+import { EventHeaderComponent } from './components/event-header/event-header.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EventAttendanceComponent } from './views/event-attendance/event-attenda
     EventDetailComponent,
     EventRegisterComponent,
     EventRegisterSuccessComponent,
-    EventAttendanceComponent
+    EventAttendanceComponent,
+    EventHeaderComponent
   ],
   imports: [
     CommonModule,
