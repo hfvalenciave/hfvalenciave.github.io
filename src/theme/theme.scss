@@ -29,7 +29,7 @@ $fontConfig: (
 // Foreground Elements
 
 // Light Theme Text
-$dark-text: #2f364bde;
+$dark-text: #303030;
 $dark-primary-text: rgba($dark-text, 0.87);
 $dark-accent-text: rgba($dark-primary-text, 0.54);
 $dark-disabled-text: rgba($dark-primary-text, 0.38);
@@ -90,8 +90,8 @@ $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
 $light-bg-darker-30:  darken($light-background, 30%);
 $light-bg-lighter-5:  lighten($light-background, 5%);
-$dark-bg-alpha-4:     rgba(#2c2c2c, 0.04);
-$dark-bg-alpha-12:    rgba(#2c2c2c, 0.12);
+$dark-bg-alpha-4:     rgba(#2f364b, 0.04);
+$dark-bg-alpha-12:    rgba(#2f364b, 0.12);
 
 $mat-light-theme-background: (
   background:               $light-background,
@@ -111,7 +111,7 @@ $mat-light-theme-background: (
 );
 
 // Dark bg
-$dark-background:     #2c2c2c;
+$dark-background:     #2f364b;
 $dark-bg-lighter-5:   lighten($dark-background, 5%);
 $dark-bg-lighter-10:  lighten($dark-background, 10%);
 $dark-bg-lighter-20:  lighten($dark-background, 20%);
@@ -165,21 +165,21 @@ $mat-primary: (
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 body {
-  --accent-color: #4e4c4c;
-  --accent-lighter-color: #cac9c9;
-  --accent-darker-color: #353333;
-  --text-accent-color: $light-primary-text;
+  --accent-color: #47b11d;
+  --accent-lighter-color: #c8e8bb;
+  --accent-darker-color: #2f9811;
+  --text-accent-color: $dark-primary-text;
   --text-accent-lighter-color: $dark-primary-text;
   --text-accent-darker-color: $light-primary-text;
 }
 
 $mat-accent: (
-  main: #4e4c4c,
-  lighter: #cac9c9,
-  darker: #353333,
-  200: #4e4c4c, // For slide toggle,
+  main: #47b11d,
+  lighter: #c8e8bb,
+  darker: #2f9811,
+  200: #47b11d, // For slide toggle,
   contrast : (
-    main: $light-primary-text,
+    main: $dark-primary-text,
     lighter: $dark-primary-text,
     darker: $light-primary-text,
   )
@@ -187,23 +187,23 @@ $mat-accent: (
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
 
 body {
-  --warn-color: #ff6968;
-  --warn-lighter-color: #ffd2d2;
-  --warn-darker-color: #ff4c4b;
-  --text-warn-color: $dark-primary-text;
+  --warn-color: #ff0000;
+  --warn-lighter-color: #ffb3b3;
+  --warn-darker-color: #ff0000;
+  --text-warn-color: $light-primary-text;
   --text-warn-lighter-color: $dark-primary-text;
-  --text-warn-darker-color: $dark-primary-text;
+  --text-warn-darker-color: $light-primary-text;
 }
 
 $mat-warn: (
-  main: #ff6968,
-  lighter: #ffd2d2,
-  darker: #ff4c4b,
-  200: #ff6968, // For slide toggle,
+  main: #ff0000,
+  lighter: #ffb3b3,
+  darker: #ff0000,
+  200: #ff0000, // For slide toggle,
   contrast : (
-    main: $dark-primary-text,
+    main: $light-primary-text,
     lighter: $dark-primary-text,
-    darker: $dark-primary-text,
+    darker: $light-primary-text,
   )
 );
 $theme-warn: mat-palette($mat-warn, main, lighter, darker);;

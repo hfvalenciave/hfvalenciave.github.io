@@ -9,4 +9,5 @@ export interface EventRegister {
     gender: string;
     sector: string;
     position: string;
+    confirmed?: boolean;
 }

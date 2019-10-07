@@ -16,6 +16,11 @@ export class EventRegisterService {
         return from(this.db.collection(collectionURl).add(register));
     }
 
+    update(eventId: string, registerId: string, register: EventRegister) {
+        const collectionUrl = `events/${eventId}/register`;
+        return from(this.db.collection(collectionUrl).doc(registerId).update(register));
+    }
+
     getById(eventId: string, registerId: string) {
         const collectionUrl = `events/${eventId}/register`;
         return this.db.collection<EventRegister>(collectionUrl).doc(registerId).snapshotChanges()
@@ -76,5 +81,17 @@ export class EventRegisterService {
             )
         );
         return email;
+    }
+
+    getTotalRegistered(eventId: string) {
+        const collectionUrl = `events/${eventId}/register`;
+        return this.db.collection(collectionUrl).snapshotChanges()
+            .pipe(map(docmuents => docmuents.length));
+    }
+
+    getTotalAttendees(eventId: string) {
+        const collectionUrl = `events/${eventId}/register`;
+        return this.db.collection(collectionUrl, ref => ref.where('confirmed', '==', true)).snapshotChanges()
+            .pipe(map(docmuents => docmuents.length));
     }
 }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatRadioModule, MatSelectModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatRadioModule, MatSelectModule, MatTableModule, MatToolbarModule, MatSlideToggleModule } from '@angular/material';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 
@@ -23,6 +23,7 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
     MatPaginatorModule,
     MatRadioModule,
     MatSelectModule,
+    MatSlideToggleModule,
     MatTableModule,
     MatToolbarModule
   ],
@@ -43,6 +44,7 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
     MatPaginatorModule,
     MatRadioModule,
     MatSelectModule,
+    MatSlideToggleModule,
     MatTableModule,
     MatToolbarModule
   ]
