@@ -7,9 +7,25 @@ $break-large: 800px;
 :host {
     @include row-flex;
     flex: none;
+    position: relative;
 
     @media screen and (max-width: $break-large) {
         @include column-flex;
+    }
+
+    .register-disabled {
+        background: #2f364b;
+        border: 5px solid #ff6968;
+        border-radius: 5px;
+        bottom: 0;
+        color: white;
+        right: 25px;
+        max-width: 300px;
+        min-width: 270px;
+        padding: 0px 15px;
+        position: absolute;
+        transform: rotate(-20deg);
+        z-index: 3000;
     }
 
     .event-image {

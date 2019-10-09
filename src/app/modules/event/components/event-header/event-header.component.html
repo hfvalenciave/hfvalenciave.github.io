@@ -1,4 +1,7 @@
 <ng-container *ngIf="event">
+    <div class="register-disabled" *ngIf="event.registerDisabled" [innerHTML]="event?.registerDisabledMessage">
+    </div>
+
     <div class="event-image">
         <img [src]="event?.image" alt="">
     </div>

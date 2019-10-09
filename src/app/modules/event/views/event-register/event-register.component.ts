@@ -35,7 +35,14 @@ export class EventRegisterComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.params.subscribe(params => {
             if (!isNullOrUndefined(params.id)) {
-                this.eventService.getById(params.id).subscribe(event => this.currentEvent = event);
+                this.eventService.getById(params.id).subscribe(event => {
+                    this.currentEvent = event;
+                    if (this.currentEvent.registerDisabled) {
+                        this.form.disable();
+                    } else {
+                        this.form.enable();
+                    }
+                });
             }
         });
     }

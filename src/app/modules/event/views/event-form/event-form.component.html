@@ -4,8 +4,8 @@
     <mat-form-field appearance="outline">
         <mat-label>Tipo</mat-label>
         <mat-select placeholder="Type" formControlName="type">
-                <mat-option value="meetup">Meetup</mat-option>
-                <mat-option value="workshop">Workshop</mat-option>
+            <mat-option value="meetup">Meetup</mat-option>
+            <mat-option value="workshop">Workshop</mat-option>
         </mat-select>
     </mat-form-field>
 
@@ -53,23 +53,20 @@
         <mat-label>Nombre</mat-label>
         <input matInput placeholder="file" formControlName="image">
     </mat-form-field>
-    <!-- <mat-label>Imagen</mat-label>
-        <input matInput placeholder="Image" formControlName="image"> -->
-    <!-- <div class="file has-name is-boxed">
-        <label class="file-label">
-            <input class="file-input" type="file" name="resume">
-            <span class="file-cta">
-                <span class="file-label">
-                    Elegir un archivo…
-                </span>
-            </span>
-            <span class="file-name">
-                No hay un archivo seleccionado
-            </span>
-        </label>
+
+
+    <div appearance="outline">
+        <mat-label>Disabled</mat-label>
+        <mat-slide-toggle color="accent" formControlName="registerDisabled">
+        </mat-slide-toggle>
     </div>
-    <hr>
-    <progress class="progress is-large is-success" value="0" max="100">0%</progress> -->
+
+    <!-- Register Disabled Message -->
+    <mat-form-field appearance="outline">
+        <mat-label>Register Disabled Message</mat-label>
+        <textarea matInput placeholder="" formControlName="registerDisabledMessage"></textarea>
+    </mat-form-field>
+
 
     <!-- Submit -->
     <div class="button-wrapper">

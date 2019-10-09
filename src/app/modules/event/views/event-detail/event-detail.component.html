@@ -1,7 +1,8 @@
 <event-header [event]="event"></event-header>
 
 <div class='event-info' *ngIf="event; else notfound">
-    <a [routerLink]="[ '/event', event._id, 'register' ]" mat-raised-button color="primary" class="register-btn">Registro</a>
+    <a [routerLink]="[ '/event', event._id, 'register' ]" mat-raised-button color="primary" class="register-btn"
+        [disabled]="event.registerDisabled" *ngIf="!event.registerDisabled">Registro</a>
     <div [innerHTML]="event?.description"></div>
     <h4>Ubicación</h4>
     <div [innerHTML]="event?.location"></div>

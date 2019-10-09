@@ -24,6 +24,10 @@ html {
             font-weight: bold !important;
             color: #2f364b !important;
             text-decoration: none !important;
+
+            &.white {
+                color: white !important;
+            }
         }
 
         .hf-slash {

@@ -31,7 +31,9 @@ export class EventFormComponent implements OnInit {
             endTime: ['23:59', Validators.required],
             description: ['', Validators.required],
             location: ['', Validators.required],
-            image: ['', Validators.required]
+            image: ['', Validators.required],
+            registerDisabled: [''],
+            registerDisabledMessage: ['']
         });
     }
 
