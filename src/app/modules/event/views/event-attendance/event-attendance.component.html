@@ -21,9 +21,22 @@
         <span>Total Registros:<b>{{ totalRegistered }}</b></span>
         <span>Total Asistentes:<b>{{ totalAttendees }}</b></span>
     </div>
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Buscar por correo o identificador" formControlName="criteria">
-    </mat-form-field>
+    <div class="row-flex radio">
+        <label id="example-radio-group-label">Buscar por:</label>
+        <mat-radio-group formControlName="searchField" aria-label="Buscar por:">
+            <mat-radio-button value="email">Email</mat-radio-button>
+            <mat-radio-button value="firstName">Nombre</mat-radio-button>
+            <mat-radio-button value="lastName">Apellido</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="row-flex">
+        <mat-form-field class="flex-1">
+            <input matInput [placeholder]="'Buscar por ' + searchField" formControlName="criteria">
+        </mat-form-field>
+        <div class="button-wrapper" *ngIf="showEmailButton">
+            <button mat-flat-button color="primary" (click)="goto(event, 'emails')">Show email list</button>
+        </div>
+    </div>
 </form>
 <table mat-table [dataSource]="dataSource" [class.hide]="!event" class="mat-elevation-z8">
 

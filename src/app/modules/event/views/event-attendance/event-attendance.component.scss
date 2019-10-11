@@ -108,6 +108,21 @@ $break-large: 800px;
         mat-form-field {
             margin: 15px 15px 5px 15px;
         }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .radio {
+            padding-left: 5px;
+            padding-top: 5px;
+
+            mat-radio-button {
+                margin-left: 15px;
+            }
+        }
     }
 
     .gender-image {

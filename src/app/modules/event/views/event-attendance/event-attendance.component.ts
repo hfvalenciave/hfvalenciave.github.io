@@ -21,6 +21,7 @@ export class EventAttendanceComponent implements OnInit {
     totalAttendees: number;
     dataSource: MatTableDataSource<EventRegister>;
     displayedColumns: string[] = ['position', 'firstName', 'lastName', 'email', 'gender', 'actions'];
+    showEmailButton = false;
 
     paginator: MatPaginator;
     @ViewChild(MatPaginator, { static: true }) set content(content: MatPaginator) {
@@ -35,7 +36,8 @@ export class EventAttendanceComponent implements OnInit {
         private router: Router) {
 
         this.form = formBuilder.group({
-            criteria: ['']
+            criteria: [''],
+            searchField: ['email']
         });
 
         this.form.get('criteria').valueChanges
@@ -60,6 +62,12 @@ export class EventAttendanceComponent implements OnInit {
                 });
             }
         });
+
+        this.activateRoute.queryParams.subscribe(params => {
+            if (!isNullOrUndefined(params.showEmailButton)) {
+                this.showEmailButton = params.showEmailButton;
+            }
+        });
     }
 
     getDate() {
@@ -72,9 +80,46 @@ export class EventAttendanceComponent implements OnInit {
     }
 
     filter(value: string) {
-        this.eventRegisterService.getByCriteria(this.event._id, value).subscribe(attendees => {
+        let observable;
+        switch (this.form.controls.searchField.value) {
+            case 'email':
+                observable = this.eventRegisterService.getByEventAndEmail(this.event._id, value);
+                break;
+            case 'firstName':
+                observable = this.eventRegisterService.getByEventAndFirstName(this.event._id, value);
+                break;
+            case 'lastName':
+                observable = this.eventRegisterService.getByEventAndLasttName(this.event._id, value);
+                break;
+        }
+
+        observable.subscribe(attendees => {
             this.dataSource = new MatTableDataSource<EventRegister>(attendees);
             this.dataSource.paginator = this.paginator;
         });
+    }
+
+    goto(element: Event, page?: string) {
+        const commands = ['/event', element._id];
+        if (!isNullOrUndefined(page)) {
+            commands.push(page);
+        }
+
+        this.router.navigate(commands);
+    }
+
+    get searchField() {
+        switch (this.form.controls.searchField.value) {
+            case 'email':
+                return 'email';
+                break;
+            case 'firstName':
+                return 'nombre';
+                break;
+            case 'lastName':
+                return 'apellido';
+                break;
+        }
+
     }
 }

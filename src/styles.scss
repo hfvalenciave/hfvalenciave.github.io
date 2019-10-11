@@ -20,6 +20,18 @@ html {
             }
         }
 
+        .row-flex {
+            @include row-flex;
+        }
+
+        .col-flex {
+            @include column-flex;
+        }
+
+        .flex-1 {
+            flex: 1;
+        }
+
         .enlace {
             font-weight: bold !important;
             color: #2f364b !important;

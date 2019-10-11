@@ -7,6 +7,7 @@ import { EventFormComponent } from './views/event-form/event-form.component';
 import { EventManagerComponent } from './views/event-manager/event-manager.component';
 import { EventRegisterSuccessComponent } from './views/event-register-success/event-register-success.component';
 import { EventRegisterComponent } from './views/event-register/event-register.component';
+import { EventAttendanceEmailListComponent } from './views/event-attendance-email-list/event-attendance-email-list.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
     },
     {
         path: ':id/edit',
+        canActivate: [AuthGuard],
         component: EventFormComponent
     },
     {
@@ -38,7 +40,13 @@ const routes: Routes = [
     },
     {
         path: ':id/attendance',
+        canActivate: [AuthGuard],
         component: EventAttendanceComponent
+    },
+    {
+        path: ':id/emails',
+        canActivate: [AuthGuard],
+        component: EventAttendanceEmailListComponent
     }
 ];
 

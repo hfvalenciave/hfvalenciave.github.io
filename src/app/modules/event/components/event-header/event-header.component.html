@@ -1,5 +1,5 @@
 <ng-container *ngIf="event">
-    <div class="register-disabled" *ngIf="event.registerDisabled" [innerHTML]="event?.registerDisabledMessage">
+    <div class="register-disabled" *ngIf="event.registerDisabled && !logged" [innerHTML]="event?.registerDisabledMessage">
     </div>
 
     <div class="event-image">

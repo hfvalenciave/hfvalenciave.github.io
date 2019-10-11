@@ -11,6 +11,7 @@ import { EventRegisterSuccessComponent } from './views/event-register-success/ev
 import { EventRegisterComponent } from './views/event-register/event-register.component';
 import { EventAttendanceComponent } from './views/event-attendance/event-attendance.component';
 import { EventHeaderComponent } from './components/event-header/event-header.component';
+import { EventAttendanceEmailListComponent } from './views/event-attendance-email-list/event-attendance-email-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EventHeaderComponent } from './components/event-header/event-header.com
     EventRegisterComponent,
     EventRegisterSuccessComponent,
     EventAttendanceComponent,
-    EventHeaderComponent
+    EventHeaderComponent,
+    EventAttendanceEmailListComponent
   ],
   imports: [
     CommonModule,

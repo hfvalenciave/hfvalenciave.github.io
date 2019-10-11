@@ -4,6 +4,10 @@
     <form [formGroup]="form" class="register" (ngSubmit)="submit()" novalidate>
 
         <div class="group-fields">
+            <mat-slide-toggle color="accent" formControlName="confirmed">
+            </mat-slide-toggle>
+        </div>
+        <div class="group-fields">
             <!-- Name -->
             <mat-form-field appearance="outline">
                 <mat-label>Nombre</mat-label>
@@ -85,7 +89,7 @@
 
         <!-- Submit -->
         <div class="button-wrapper">
-            <button mat-flat-button color="primary" [disabled]="!form.valid">Enviar</button>
+            <button mat-flat-button color="primary" [disabled]="!form.valid || sending">Enviar</button>
         </div>
     </form>
 </div>

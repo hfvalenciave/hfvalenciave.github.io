@@ -1,0 +1,5 @@
+@import 'theme/mixin';
+
+:host {
+    @include column-flex;
+}

@@ -1,5 +1,6 @@
-import { isNullOrUndefined } from 'util';
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/modules/security-utils/services/auth/auth.service';
+import { isNullOrUndefined } from 'util';
 import { Event, FirebaseDate } from './../../models/event';
 
 @Component({
@@ -9,10 +10,12 @@ import { Event, FirebaseDate } from './../../models/event';
 })
 export class EventHeaderComponent implements OnInit {
     @Input() event: Event;
+    logged = false;
 
-    constructor() { }
+    constructor(private autnService: AuthService) { }
 
     ngOnInit() {
+        this.autnService.signed.subscribe(signed => this.logged = signed);
     }
 
     getDate() {
