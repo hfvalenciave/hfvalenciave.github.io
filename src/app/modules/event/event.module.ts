@@ -14,23 +14,23 @@ import { EventHeaderComponent } from './components/event-header/event-header.com
 import { EventAttendanceEmailListComponent } from './views/event-attendance-email-list/event-attendance-email-list.component';
 
 @NgModule({
-  declarations: [
-    EventManagerComponent,
-    EventFormComponent,
-    EventDetailComponent,
-    EventRegisterComponent,
-    EventRegisterSuccessComponent,
-    EventAttendanceComponent,
-    EventHeaderComponent,
-    EventAttendanceEmailListComponent
-  ],
-  imports: [
-    CommonModule,
-    EventRoutingModule,
-    FormsModule,
-    LoadMaterialModule,
-    ReactiveFormsModule,
-    UtilsModule
-  ]
+    declarations: [
+        EventManagerComponent,
+        EventFormComponent,
+        EventDetailComponent,
+        EventRegisterComponent,
+        EventRegisterSuccessComponent,
+        EventAttendanceComponent,
+        EventHeaderComponent,
+        EventAttendanceEmailListComponent
+    ],
+    imports: [
+        CommonModule,
+        EventRoutingModule,
+        FormsModule,
+        LoadMaterialModule,
+        ReactiveFormsModule,
+        UtilsModule
+    ]
 })
 export class EventModule { }
