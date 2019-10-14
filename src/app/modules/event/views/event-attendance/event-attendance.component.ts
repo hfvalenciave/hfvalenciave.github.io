@@ -1,9 +1,11 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime } from 'rxjs/operators';
 import { isNullOrUndefined } from 'util';
+import { XlsxService } from './../../../utils/services/xlsx/xlsx.service';
 import { Event, FirebaseDate } from './../../models/event';
 import { EventRegister } from './../../models/event-register';
 import { EventRegisterService } from './../../services/event-register/event-register.service';
@@ -12,7 +14,8 @@ import { EventService } from './../../services/event/event.service';
 @Component({
     selector: 'app-event-attendance',
     templateUrl: './event-attendance.component.html',
-    styleUrls: ['./event-attendance.component.scss']
+    styleUrls: ['./event-attendance.component.scss'],
+    providers: [DatePipe]
 })
 export class EventAttendanceComponent implements OnInit {
     form: FormGroup;
@@ -31,8 +34,10 @@ export class EventAttendanceComponent implements OnInit {
     constructor(
         formBuilder: FormBuilder,
         private activateRoute: ActivatedRoute,
+        private datePipe: DatePipe,
         private eventService: EventService,
         private eventRegisterService: EventRegisterService,
+        private excelService: XlsxService,
         private router: Router) {
 
         this.form = formBuilder.group({
@@ -121,5 +126,26 @@ export class EventAttendanceComponent implements OnInit {
                 break;
         }
 
+    }
+
+    exportAsXLSX(): void {
+        const data = this.dataSource.data.map(attendant => {
+            const date = (attendant.birthdate as FirebaseDate).seconds * 1000;
+            const formattedDate = this.datePipe.transform(date, 'dd/MM/yyyy');
+            delete(attendant.birthdate);
+            return {
+                Nombre: attendant.firstName,
+                Apellido: attendant.lastName,
+                Correo: attendant.email,
+                gender: attendant.gender,
+                Experticia: attendant.sector,
+                Ocupacion: attendant.position,
+                Fecha : formattedDate,
+                Ciudad: attendant.city,
+                Asistio: attendant.confirmed ? 'Si' : 'No'
+            };
+        });
+        console.log(data);
+        this.excelService.exportAsExcelFile(data, 'sample');
     }
 }

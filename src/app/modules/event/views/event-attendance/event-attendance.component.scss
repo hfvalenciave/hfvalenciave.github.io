@@ -116,11 +116,16 @@ $break-large: 800px;
         }
 
         .radio {
+            align-items: center;
             padding-left: 5px;
             padding-top: 5px;
 
             mat-radio-button {
                 margin-left: 15px;
+            }
+
+            .export {
+                margin-left: 50px;
             }
         }
     }
