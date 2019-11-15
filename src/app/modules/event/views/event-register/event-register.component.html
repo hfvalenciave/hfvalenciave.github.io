@@ -3,7 +3,7 @@
 <div class="register" *ngIf="currentEvent">
     <form [formGroup]="form" class="register" (ngSubmit)="submit()" novalidate>
 
-        <div class="group-fields">
+        <div class="group-fields" *ngIf="logged">
             <mat-slide-toggle color="accent" formControlName="confirmed">
             </mat-slide-toggle>
         </div>
@@ -85,6 +85,20 @@
                 <mat-label>Ocupación</mat-label>
                 <input matInput placeholder="Ocupación" formControlName="position">
             </mat-form-field>
+        </div>
+
+
+
+        <div class="group-fields horizontal-separator">
+            <mat-checkbox color="primary" formControlName="allowShareInformation">
+                Quiero recibir email para mantenerme informado de las actividades de Hackers and Founders Valencia, 
+                así como de otros eventos que ellos consideran de importancia para la comunidad.
+            </mat-checkbox>
+        </div>
+        <div class="group-fields horizontal-separator" *ngIf="false">
+            <mat-checkbox color="primary" formControlName="acceptConditions">
+                Acepto téminos y condiciones
+            </mat-checkbox>
         </div>
 
         <!-- Submit -->

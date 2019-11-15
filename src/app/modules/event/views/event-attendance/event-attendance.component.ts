@@ -1,9 +1,11 @@
+import { MailComponent } from './../../../utils/views/mail/mail.component';
+import { MailerService } from './../../../utils/services/mailer/mailer.service';
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, map } from 'rxjs/operators';
 import { isNullOrUndefined } from 'util';
 import { XlsxService } from './../../../utils/services/xlsx/xlsx.service';
 import { Event, FirebaseDate } from './../../models/event';
@@ -18,6 +20,7 @@ import { EventService } from './../../services/event/event.service';
     providers: [DatePipe]
 })
 export class EventAttendanceComponent implements OnInit {
+    private data: any = { message: '' };
     form: FormGroup;
     event: Event;
     totalRegistered: number;
@@ -35,9 +38,11 @@ export class EventAttendanceComponent implements OnInit {
         formBuilder: FormBuilder,
         private activateRoute: ActivatedRoute,
         private datePipe: DatePipe,
+        private dialog: MatDialog,
         private eventService: EventService,
         private eventRegisterService: EventRegisterService,
         private excelService: XlsxService,
+        private mailerService: MailerService,
         private router: Router) {
 
         this.form = formBuilder.group({
@@ -132,7 +137,7 @@ export class EventAttendanceComponent implements OnInit {
         const data = this.dataSource.data.map(attendant => {
             const date = (attendant.birthdate as FirebaseDate).seconds * 1000;
             const formattedDate = this.datePipe.transform(date, 'dd/MM/yyyy');
-            delete(attendant.birthdate);
+            delete (attendant.birthdate);
             return {
                 Nombre: attendant.firstName,
                 Apellido: attendant.lastName,
@@ -140,12 +145,43 @@ export class EventAttendanceComponent implements OnInit {
                 gender: attendant.gender,
                 Experticia: attendant.sector,
                 Ocupacion: attendant.position,
-                Fecha : formattedDate,
+                Fecha: formattedDate,
                 Ciudad: attendant.city,
                 Asistio: attendant.confirmed ? 'Si' : 'No'
             };
         });
         console.log(data);
         this.excelService.exportAsExcelFile(data, 'sample');
+    }
+
+    sendMail(message) {
+        const attendees = this.dataSource.data.filter(attendant => attendant.confirmed);
+        const mail = {
+            to: 'bernardo.pena.ramos@gmail.com',
+            subject: 'Hola desde firebase',
+            message
+        };
+        attendees.filter(attendant => !isNullOrUndefined(attendant.email))
+            .map(attendant => attendant.email)
+            .forEach(email => {
+                mail.to = email;
+                console.log(email);
+                this.mailerService.sendMail(mail);
+            });
+
+    }
+
+    openDialog(): void {
+        const dialogRef = this.dialog.open(MailComponent, {
+            width: '350px',
+            data: this.data
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (!isNullOrUndefined(result)) {
+                this.data.message = result.message;
+                this.sendMail(this.data.message);
+            }
+        });
     }
 }

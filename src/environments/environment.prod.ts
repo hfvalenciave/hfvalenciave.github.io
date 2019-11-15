@@ -8,5 +8,6 @@ export const environment = {
     storageBucket: "",
     messagingSenderId: "298789626472",
     appId: "1:298789626472:web:ebe09bc0ae6de4eb7211dd"
-  }
+  },
+  firebaseFunctionsUrl: 'https://us-central1-hfvalenciave-website.cloudfunctions.net'
 };

@@ -120,4 +120,12 @@
             }
         }
     }
+
+    .horizontal-separator {
+        padding-bottom: 10px;
+    }
+
+    ::ng-deep .mat-checkbox-label { 
+        white-space: normal;
+    }
 }

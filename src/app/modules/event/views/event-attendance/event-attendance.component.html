@@ -29,6 +29,8 @@
             <mat-radio-button value="lastName">Apellido</mat-radio-button>
         </mat-radio-group>
         <button mat-flat-button color="primary" class="export" (click)="exportAsXLSX()">Exportar XLSX</button>
+        <button mat-flat-button color="primary" class="export" (click)="openDialog  ()">Enviar Mail a
+            Asistentes</button>
     </div>
     <div class="row-flex">
         <mat-form-field class="flex-1">
@@ -94,3 +96,12 @@
 </table>
 
 <mat-paginator [class.hide]="!event" [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+
+
+
+
+
+
+
+
+

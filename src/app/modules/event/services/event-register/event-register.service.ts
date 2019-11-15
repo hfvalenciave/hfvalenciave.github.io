@@ -27,6 +27,7 @@ export class EventRegisterService {
     save(eventId: string, register: EventRegister) {
         const collectionURl = `events/${eventId}/register`;
         register = this.toLowercase(register);
+        register.registerTime = Date.now();
         return from(this.db.collection(collectionURl).add(register));
     }
 

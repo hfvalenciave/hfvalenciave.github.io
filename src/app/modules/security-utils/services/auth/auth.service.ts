@@ -26,7 +26,7 @@ export class AuthService {
                 }),
                 catchError(error => {
                     this.signed.next(false);
-                    return error;
+                    throw new Error('No ha podido iniciar sesión, revise los datos e intente de nuevo.');
                 })
             );
     }

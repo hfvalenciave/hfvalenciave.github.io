@@ -12,8 +12,8 @@ export class SigninComponent implements OnInit {
     form: FormGroup;
 
     constructor(formBuilder: FormBuilder,
-                private authService: AuthService,
-                private router: Router) {
+        private authService: AuthService,
+        private router: Router) {
         this.form = formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', Validators.required]
@@ -27,10 +27,16 @@ export class SigninComponent implements OnInit {
         if (this.form.valid) {
             this.form.disable();
             const { email, password } = this.form.value;
-            this.authService.login(email, password).subscribe(value => {
-                this.form.enable();
-                this.router.navigate(['/admin']);
-            });
+            this.authService.login(email, password).subscribe(
+                value => {
+                    this.form.enable();
+                    this.router.navigate(['/admin']);
+                    this.form.enable();
+                },
+                error => {
+                    console.log('error: ', error);
+                    this.form.enable();
+                });
         }
     }
 }

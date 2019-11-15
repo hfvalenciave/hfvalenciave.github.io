@@ -33,7 +33,9 @@ export class EventRegisterComponent implements OnInit {
             gender: ['', Validators.required],
             sector: ['', Validators.required],
             position: ['', Validators.required],
-            confirmed: [false]
+            confirmed: [false],
+            acceptConditions: [true],
+            allowShareInformation: [true]
         });
     }
 

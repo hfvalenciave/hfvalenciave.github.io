@@ -10,4 +10,7 @@ export interface EventRegister {
     sector: string;
     position: string;
     confirmed?: boolean;
+    acceptConditions?: boolean;
+    allowShareInformation?: boolean;
+    registerTime?: number;
 }

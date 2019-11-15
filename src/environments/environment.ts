@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: "",
     messagingSenderId: "450917584643",
     appId: "1:450917584643:web:4e9598b76b246b2de2a336"
-  }
+  },
+  firebaseFunctionsUrl: 'https://us-central1-hfvalenciave-website-dev.cloudfunctions.net'
 };
 
 /*
